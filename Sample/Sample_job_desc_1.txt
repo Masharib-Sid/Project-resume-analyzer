@@ -1,0 +1,18 @@
+Job Title: Full-Stack Software Engineer
+
+We are hiring a Full-Stack Software Engineer to build and scale our web platform. The ideal candidate will have experience developing frontend applications and backend services, writing clean REST APIs, and deploying services in cloud environments.
+
+Responsibilities:
+- Develop responsive user interfaces using React.
+- Build backend APIs using Node.js and Express.
+- Design and optimize PostgreSQL databases.
+- Containerize applications with Docker and deploy to AWS.
+- Implement CI/CD pipelines and write unit/integration tests.
+
+Required Skills:
+- React, JavaScript/TypeScript
+- Node.js, Express
+- REST APIs
+- PostgreSQL / SQL
+- Docker, AWS (EC2, S3)
+- Git and CI/CD (GitHub Actions or similar)

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Resume Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="wrap">
+    <h1>AI Resume Analyzer</h1>
+
+    <form id="form" enctype="multipart/form-data" class="card">
+      <label>Resume (PDF)</label>
+      <input type="file" name="resume" accept="application/pdf" required>
+
+      <label>Job description</label>
+      <textarea name="job_desc" rows="5" placeholder="Paste job description..." required></textarea>
+
+      <button id="btn">Analyze</button>
+    </form>
+
+    <section class="card results" aria-live="polite">
+      <div><strong>Score:</strong> <span id="score">—</span></div>
+      <div><strong>Feedback:</strong> <span id="feedback">—</span></div>
+      <div><strong>Recommendations:</strong>
+        <div id="recs" class="recs">—</div>
+      </div>
+    </section>
+  </main>
+
+<script>
+const form = document.getElementById('form');
+const scoreEl = document.getElementById('score');
+const feedbackEl = document.getElementById('feedback');
+const recsEl = document.getElementById('recs');
+const btn = document.getElementById('btn');
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  scoreEl.textContent = '...';
+  feedbackEl.textContent = 'Analyzing…';
+  recsEl.textContent = '';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/analyze', { method: 'POST', body: new FormData(form) });
+    const data = await res.json();
+    if (data.error) {
+      scoreEl.textContent = '—';
+      feedbackEl.textContent = 'Error: ' + data.error;
+      recsEl.textContent = '';
+    } else {
+      scoreEl.textContent = (typeof data.score === 'number') ? data.score + '%' : data.score;
+      feedbackEl.textContent = data.feedback || '—';
+      recsEl.textContent = Array.isArray(data.recommendations)
+        ? data.recommendations.join('\n')
+        : String(data.recommendations || 'No suggestions.');
+    }
+  } catch (err) {
+    scoreEl.textContent = '—';
+    feedbackEl.textContent = 'Request failed';
+    recsEl.textContent = String(err);
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

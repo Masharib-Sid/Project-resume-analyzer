@@ -1,0 +1,5 @@
+flask
+numpy
+PyPDF2
+sentence-transformers
+gunicorn

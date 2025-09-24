@@ -1,0 +1,20 @@
+/* Simple, clean styles easy to explain */
+:root{--bg:#f7f8fb;--card:#fff;--accent:#0b69ff;--muted:#6b7280}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#111}
+.wrap{max-width:720px;margin:28px auto;padding:16px}
+h1{text-align:center;margin:0 0 14px;font-size:20px}
+.card{background:var(--card);padding:12px;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,42,0.06);margin-bottom:12px}
+label{display:block;margin:8px 0 6px;font-weight:600}
+input[type=file],textarea,button{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ef;font-size:14px}
+textarea{min-height:100px;resize:vertical}
+button{background:var(--accent);color:#fff;border:none;font-weight:700;cursor:pointer;margin-top:10px}
+button:disabled{opacity:.6;cursor:not-allowed}
+
+/* result area: scrollable recommendations */
+.results > div{margin:8px 0}
+.results strong{display:inline-block;width:120px;color:var(--muted);font-weight:700}
+.recs{white-space:pre-wrap;word-break:break-word;max-height:160px;overflow:auto;padding:8px;border-radius:6px;background:#fbfcff;border:1px solid #eef6ff}
+
+/* small screens */
+@media (max-width:520px){.results strong{width:100px}}

@@ -1,0 +1,18 @@
+Job Title: AI / Machine Learning Engineer
+
+We’re looking for an ML Engineer to design, train, and deploy machine learning models. You will work on NLP and vision projects, productionize models, and build reliable training pipelines.
+
+Responsibilities:
+- Design and implement ML models (NLP/CV) using TensorFlow or PyTorch.
+- Perform feature engineering, model evaluation and hyperparameter tuning.
+- Deploy models in Docker containers and expose via REST endpoints.
+- Build training & inference pipelines, and monitor model performance.
+- Collaborate with engineers to integrate models into products.
+
+Required Skills:
+- Python, NumPy, Pandas
+- TensorFlow or PyTorch
+- NLP / Transformers or Computer Vision (CNNs)
+- Docker, model serving (TF Serving / TorchServe)
+- AWS (S3, SageMaker) or equivalent cloud experience
+- Experience with version control (Git) and CI for models
